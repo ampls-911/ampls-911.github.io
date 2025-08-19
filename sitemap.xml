@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://ampls-911.github.io/posts/text-and-typography/</loc>
-<lastmod>2019-08-08T04:33:00+01:00</lastmod>
-</url>
-<url>
-<loc>https://ampls-911.github.io/posts/write-a-new-post/</loc>
-<lastmod>2019-08-08T07:10:00+01:00</lastmod>
-</url>
-<url>
 <loc>https://ampls-911.github.io/posts/getting-started/</loc>
 <lastmod>2019-08-09T13:55:00+01:00</lastmod>
 </url>
@@ -26,28 +18,22 @@
 </url>
 <url>
 <loc>https://ampls-911.github.io/categories/</loc>
-<lastmod>2025-08-19T09:03:54+01:00</lastmod>
+<lastmod>2025-08-19T09:04:10+01:00</lastmod>
 </url>
 <url>
 <loc>https://ampls-911.github.io/tags/</loc>
-<lastmod>2025-08-19T09:03:54+01:00</lastmod>
+<lastmod>2025-08-19T09:04:10+01:00</lastmod>
 </url>
 <url>
 <loc>https://ampls-911.github.io/archives/</loc>
-<lastmod>2025-08-19T09:03:54+01:00</lastmod>
+<lastmod>2025-08-19T09:04:10+01:00</lastmod>
 </url>
 <url>
 <loc>https://ampls-911.github.io/about/</loc>
-<lastmod>2025-08-19T09:03:54+01:00</lastmod>
+<lastmod>2025-08-19T09:04:10+01:00</lastmod>
 </url>
 <url>
 <loc>https://ampls-911.github.io/</loc>
-</url>
-<url>
-<loc>https://ampls-911.github.io/tags/typography/</loc>
-</url>
-<url>
-<loc>https://ampls-911.github.io/tags/writing/</loc>
 </url>
 <url>
 <loc>https://ampls-911.github.io/tags/getting-started/</loc>
@@ -66,9 +52,6 @@
 </url>
 <url>
 <loc>https://ampls-911.github.io/categories/blogging/</loc>
-</url>
-<url>
-<loc>https://ampls-911.github.io/categories/demo/</loc>
 </url>
 <url>
 <loc>https://ampls-911.github.io/categories/tutorial/</loc>
