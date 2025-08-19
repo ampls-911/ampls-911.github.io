@@ -19,6 +19,15 @@
   },
   
   {
+    "title": "bwip",
+    "url": "/posts/bwip/",
+    "categories": "TryHackMe",
+    "tags": "thm, ctf, walkthrough",
+    "date": "2025-08-19 08:50:00 +0100",
+    "content": "This is a test post to check if TryHackMe category works.  waaaaaaywa "
+  },
+  
+  {
     "title": "Customize the Favicon",
     "url": "/posts/customize-the-favicon/",
     "categories": "Blogging, Tutorial",

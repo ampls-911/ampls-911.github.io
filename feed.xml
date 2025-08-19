@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-19T08:56:54+01:00</updated>
+  <updated>2025-08-19T08:59:57+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -68,6 +68,30 @@
 
   
   <entry>
+    <title>bwip</title>
+    <link href="https://ampls-911.github.io/posts/bwip/" rel="alternate" type="text/html" title="bwip" />
+    <published>2025-08-19T08:50:00+01:00</published>
+  
+    <updated>2025-08-19T08:50:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/bwip/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/bwip/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="TryHackMe" />
+    
+  
+
+  <summary>This is a test post to check if TryHackMe category works.  waaaaaaywa</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Customize the Favicon</title>
     <link href="https://ampls-911.github.io/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
     <published>2019-08-10T17:34:00+01:00</published>
@@ -115,32 +139,6 @@
   
 
   <summary>Get started with Chirpy basics in this comprehensive overview. You will learn how to install, configure, and use your first Chirpy-based website, as well as deploy it to a web server.</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Writing a New Post</title>
-    <link href="https://ampls-911.github.io/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
-    <published>2019-08-08T07:10:00+01:00</published>
-  
-    <updated>2019-08-08T07:10:00+01:00</updated>
-  
-    <id>https://ampls-911.github.io/posts/write-a-new-post/</id>
-    <content type="text/html" src="https://ampls-911.github.io/posts/write-a-new-post/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  <summary>This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.  Naming and Path  Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...</summary>
 
   </entry>
 
