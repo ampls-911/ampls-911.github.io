@@ -3,7 +3,7 @@
 {
   "name": "ampls",
   "short_name": "ampls",
-  "description": "A minimal, responsive and feature-rich Jekyll theme for technical writing.",
+  "description": "A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.",
   "icons": [
     {
       "src": "/assets/img/favicons/android-chrome-192x192.png",
