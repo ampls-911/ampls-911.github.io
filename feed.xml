@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-19T09:04:18+01:00</updated>
+  <updated>2025-08-19T09:04:28+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -63,32 +63,6 @@
   
 
   <summary>This is a test post to check if TryHackMe category works.  waaaaaaywa</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Customize the Favicon</title>
-    <link href="https://ampls-911.github.io/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
-    <published>2019-08-10T17:34:00+01:00</published>
-  
-    <updated>2019-08-10T17:34:00+01:00</updated>
-  
-    <id>https://ampls-911.github.io/posts/customize-the-favicon/</id>
-    <content type="text/html" src="https://ampls-911.github.io/posts/customize-the-favicon/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  <summary>The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.  Generate the favicon  Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...</summary>
 
   </entry>
 
