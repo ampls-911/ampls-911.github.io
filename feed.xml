@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-19T09:04:10+01:00</updated>
+  <updated>2025-08-19T09:04:18+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -89,32 +89,6 @@
   
 
   <summary>The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.  Generate the favicon  Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Getting Started</title>
-    <link href="https://ampls-911.github.io/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
-    <published>2019-08-09T13:55:00+01:00</published>
-  
-    <updated>2019-08-09T13:55:00+01:00</updated>
-  
-    <id>https://ampls-911.github.io/posts/getting-started/</id>
-    <content type="text/html" src="https://ampls-911.github.io/posts/getting-started/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  <summary>Get started with Chirpy basics in this comprehensive overview. You will learn how to install, configure, and use your first Chirpy-based website, as well as deploy it to a web server.</summary>
 
   </entry>
 
