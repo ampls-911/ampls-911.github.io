@@ -1,15 +1,6 @@
 [
   
   {
-    "title": "Test",
-    "url": "/posts/test/",
-    "categories": "TryHackMe",
-    "tags": "",
-    "date": "2025-08-19 08:50:00 +0100",
-    "content": "This is a test post to check if categories are working. "
-  },
-  
-  {
     "title": "bwip",
     "url": "/posts/bwip/",
     "categories": "TryHackMe",
