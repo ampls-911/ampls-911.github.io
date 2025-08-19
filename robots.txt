@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: https://ampls-911.github.io/sitemap.xml
+Sitemap: /sitemap.xml
