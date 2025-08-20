@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-20T04:31:10+01:00</updated>
+  <updated>2025-08-20T04:45:24+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -38,7 +38,7 @@
     
   
 
-  <summary>Reconnaissance  in the Reconnaissance phase i started by using nmap to enumerate the open ports, after a while nmap returns a very long list. we see that a lot of ports of interest are open like http and ssh      we can access the web page by visiting http://10.10.15.229:80/  i tried enumerating folders but it didn’t lead anywhere.    browsing the site we can find a login page on http://10.10.1...</summary>
+  <summary>Reconnaissance  In the reconnaissance phase, I started by using Nmap to enumerate the open ports. After a while, Nmap returned a very long list. We can see that a lot of ports of interest are open, such as HTTP and SSH.      We can access the webpage by visiting http://10.10.15.229:80/.  I tried enumerating folders, but it didn’t lead anywhere.    While browsing the site, we find a login page a...</summary>
 
   </entry>
 

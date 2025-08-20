@@ -2385,7 +2385,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="456 words"
+  title="440 words"
 >
   <em>2 min</em> read</span>
 
@@ -2399,103 +2399,115 @@
   <div class="content">
     <h1 id="reconnaissance">Reconnaissance</h1>
 
-<p>in the Reconnaissance phase i started by using nmap to enumerate the open ports, after a while nmap returns a very long list.
-we see that a lot of ports of interest are open like http and ssh</p>
+<p>In the reconnaissance phase, I started by using Nmap to enumerate the open ports. After a while, Nmap returned a very long list.<br />
+We can see that a lot of ports of interest are open, such as HTTP and SSH.</p>
 
 <p><a href="https://github.com/user-attachments/assets/d8ba15e1-ca3c-4d96-aae1-2ead76b33de0" class="popup img-link shimmer"><img width="634" height="499" alt="image" src="https://github.com/user-attachments/assets/d8ba15e1-ca3c-4d96-aae1-2ead76b33de0" loading="lazy"></a></p>
 
-<p><a href="https://github.com/user-attachments/assets/8ae02006-f1e3-470b-b66e-f93587529ca4" class="popup img-link shimmer"><img width="280" height="67" alt="image" src="https://github.com/user-attachments/assets/8ae02006-f1e3-470b-b66e-f93587529ca4" loading="lazy"></a></p>
+<p><a href="https://github.com/user-attachments/assets/f1e3-470b-b66e-f93587529ca4" class="popup img-link shimmer"><img width="280" height="67" alt="image" src="https://github.com/user-attachments/assets/f1e3-470b-b66e-f93587529ca4" loading="lazy"></a></p>
 
-<p>we can access the web page by visiting <code class="language-plaintext highlighter-rouge">http://10.10.15.229:80/</code></p>
+<p>We can access the webpage by visiting <code class="language-plaintext highlighter-rouge">http://10.10.15.229:80/</code>.</p>
 
-<p>i tried enumerating folders but it didn’t lead anywhere.</p>
+<p>I tried enumerating folders, but it didn’t lead anywhere.</p>
 
 <p><a href="https://github.com/user-attachments/assets/290cc50e-a195-4dfb-97ff-beaa21d2f496" class="popup img-link shimmer"><img width="828" height="492" alt="image" src="https://github.com/user-attachments/assets/290cc50e-a195-4dfb-97ff-beaa21d2f496" loading="lazy"></a></p>
 
-<p>browsing the site we can find a login page on <code class="language-plaintext highlighter-rouge">http://10.10.15.229:80/login.php</code></p>
+<p>While browsing the site, we find a login page at <code class="language-plaintext highlighter-rouge">http://10.10.15.229:80/login.php</code>.</p>
 
 <p><a href="https://github.com/user-attachments/assets/f483f5bb-3e3b-41c5-a4fb-a0c05cfbbf7a" class="popup img-link shimmer"><img width="1275" height="792" alt="image" src="https://github.com/user-attachments/assets/f483f5bb-3e3b-41c5-a4fb-a0c05cfbbf7a" loading="lazy"></a></p>
 
-<h1 id="sqli-auth-bypass">SQLI AUTH Bypass</h1>
+<h1 id="sqli-authentication-bypass">SQLi Authentication Bypass</h1>
 
-<p>i tried testing basic login credentials like admin:admin and admin:Password123 but nothing worked, so i intercepted a login post reequest using burp suite and used it to test the login page using sqlmap for sql injections which tells me that the username parameter appears to be injectable</p>
+<p>I tried testing basic login credentials like <code class="language-plaintext highlighter-rouge">admin:admin</code> and <code class="language-plaintext highlighter-rouge">admin:Password123</code>, but nothing worked.<br />
+So, I intercepted a login POST request using Burp Suite and tested it with SQLMap for SQL injection. SQLMap reported that the <strong>username</strong> parameter appeared to be injectable.</p>
 
 <p><a href="https://github.com/user-attachments/assets/536b334e-5752-4e70-a6d4-8c537e554d59" class="popup img-link shimmer"><img width="1253" height="328" alt="image" src="https://github.com/user-attachments/assets/536b334e-5752-4e70-a6d4-8c537e554d59" loading="lazy"></a></p>
 
 <p><a href="https://github.com/user-attachments/assets/3b783620-ee3b-48e0-931d-b244cb578ec3" class="popup img-link shimmer"><img width="1183" height="70" alt="image" src="https://github.com/user-attachments/assets/3b783620-ee3b-48e0-931d-b244cb578ec3" loading="lazy"></a></p>
 
-<p>i inetially tried to dump the database which was successful and revealed a single user but the password hash associated whit the user was uncrackable using online sites like crackstation and x.</p>
+<p>I initially tried to dump the database, which was successful and revealed a single user. However, the password hash associated with the user was uncrackable using online sites like CrackStation and others.</p>
 
-<p><a href="https://github.com/user-attachments/assets/428f4de6-5b17-4b8e-9c21-016d4212aa16" class="popup img-link shimmer"><img width="599" height="248" alt="image" src="https://github.com/user-attachments/assets/428f4de6-5b17-4b8e-9c21-016d4212aa16" loading="lazy"></a></p>
+<p><a href="https://github.com/user-attachments/assets/e975e7ae-0e21-4f8b-bbf1-2b8bdb940c62" class="popup img-link shimmer"><img width="599" height="248" alt="Capture d'écran 2025-08-20 025521" src="https://github.com/user-attachments/assets/e975e7ae-0e21-4f8b-bbf1-2b8bdb940c62" loading="lazy"></a></p>
 
-<p>so knowing the username parameter is injectable i tried some payloads and eventually this worked <code class="language-plaintext highlighter-rouge">' || 1=1;-- -</code> and we were able to bypass the authetication process</p>
+<p>Knowing the <strong>username</strong> parameter was injectable, I tried some payloads, and eventually this one worked: <code class="language-plaintext highlighter-rouge">' || 1=1;-- -</code></p>
+
+<p>This allowed us to bypass the authentication process.</p>
 
 <p><a href="https://github.com/user-attachments/assets/b37493e5-6140-450c-b102-6d46e8c87480" class="popup img-link shimmer"><img width="1266" height="792" alt="image" src="https://github.com/user-attachments/assets/b37493e5-6140-450c-b102-6d46e8c87480" loading="lazy"></a></p>
 
 <h1 id="lfi-and-rce">LFI and RCE</h1>
 
-<p>visiting the messages section of the site we see a clickable link that sends you to a page with the message : If you know, you know :D</p>
+<p>Visiting the <em>messages</em> section of the site, we see a clickable link that takes us to a page with the message:</p>
+<blockquote>
+  <p>If you know, you know :D</p>
+</blockquote>
 
-<p>upon further inspection we realise the url is using file parameter to give us the message along with a filter <code class="language-plaintext highlighter-rouge">http://10.10.15.229/secret-script.php?file=php://filter/resource=supersecretmessageforadmin</code>,
-a simple test to try to read a world readable file turns out to be successful</p>
+<p>Upon further inspection, we realize the URL is using a <code class="language-plaintext highlighter-rouge">file</code> parameter along with a filter:</p>
+
+<p><code class="language-plaintext highlighter-rouge">http://10.10.15.229/secret-script.php?file=php://filter/resource=supersecretmessageforadmin</code></p>
+
+<p>A simple test to try reading a world-readable file turns out to be successful.</p>
 
 <p><a href="https://github.com/user-attachments/assets/50fd13ed-d954-485d-8b53-0b3050845a6e" class="popup img-link shimmer"><img width="1271" height="796" alt="image" src="https://github.com/user-attachments/assets/50fd13ed-d954-485d-8b53-0b3050845a6e" loading="lazy"></a></p>
 
-<p>we have a LFI !</p>
+<p>We have an <strong>LFI</strong>!</p>
 
-<p>we can use the convert.base64-encode filter to read the secret-script.php file like so :</p>
+<p>We can use the <code class="language-plaintext highlighter-rouge">convert.base64-encode</code> filter to read the <code class="language-plaintext highlighter-rouge">secret-script.php</code> file like so:</p>
 
 <p><a href="https://github.com/user-attachments/assets/afd2d90c-63f4-41b4-940f-c15fd5bdc992" class="popup img-link shimmer"><img width="1103" height="163" alt="image" src="https://github.com/user-attachments/assets/afd2d90c-63f4-41b4-940f-c15fd5bdc992" loading="lazy"></a></p>
 
-<p>to get a reverse shell we need to use this tool https://github.com/synacktiv/php_filter_chain_generator</p>
+<p>To get a reverse shell, we need to use this tool:<br />
+<a href="https://github.com/synacktiv/php_filter_chain_generator">PHP filter chain generator</a></p>
 
-<p>we set our netcat listener and then we create and send our payload</p>
+<p>We set our Netcat listener and then create and send our payload.</p>
 
 <p><a href="https://github.com/user-attachments/assets/6f1363ef-1834-4007-ba88-f3b462b287b1" class="popup img-link shimmer"><img width="1248" height="133" alt="image" src="https://github.com/user-attachments/assets/6f1363ef-1834-4007-ba88-f3b462b287b1" loading="lazy"></a></p>
 
-<p>and we have a shell !</p>
+<p>And we have a shell!</p>
 
 <p><a href="https://github.com/user-attachments/assets/ad51943e-f1b4-4ecc-93eb-d33a5139a2aa" class="popup img-link shimmer"><img width="529" height="157" alt="image" src="https://github.com/user-attachments/assets/ad51943e-f1b4-4ecc-93eb-d33a5139a2aa" loading="lazy"></a></p>
 
-<h1 id="user-flag">user flag</h1>
-<p>when we access the user comte’s home directory we can access his .ssh folder and we find an authorized_keys file,</p>
+<h1 id="user-flag">User Flag</h1>
+
+<p>When we access the user <em>comte</em>’s home directory, we can access the <code class="language-plaintext highlighter-rouge">.ssh</code> folder and find an <code class="language-plaintext highlighter-rouge">authorized_keys</code> file.</p>
 
 <p><a href="https://github.com/user-attachments/assets/d32f14a0-0f44-4641-a386-73ef3156b571" class="popup img-link shimmer"><img width="473" height="120" alt="image" src="https://github.com/user-attachments/assets/d32f14a0-0f44-4641-a386-73ef3156b571" loading="lazy"></a></p>
 
-<p>we can generate an ssh key and add it to the file to get a shell as comte scince the file is writable</p>
+<p>Since the file is writable, we can generate an SSH key and add it to the file to get a shell as <em>comte</em>.</p>
 
 <p><a href="https://github.com/user-attachments/assets/07df89d7-7b89-43f4-9b85-2798ebdcd780" class="popup img-link shimmer"><img width="771" height="443" alt="image" src="https://github.com/user-attachments/assets/07df89d7-7b89-43f4-9b85-2798ebdcd780" loading="lazy"></a></p>
 
 <p><a href="https://github.com/user-attachments/assets/946e7f9b-5b7d-4713-935b-d808ffeaf4b6" class="popup img-link shimmer"><img width="1249" height="82" alt="image" src="https://github.com/user-attachments/assets/946e7f9b-5b7d-4713-935b-d808ffeaf4b6" loading="lazy"></a></p>
 
-<p>now connect via ssh</p>
+<p>Now we connect via SSH:</p>
 
 <p><a href="https://github.com/user-attachments/assets/1ff1c680-b0f9-43bf-a665-3daeae9acb2c" class="popup img-link shimmer"><img width="741" height="700" alt="image" src="https://github.com/user-attachments/assets/1ff1c680-b0f9-43bf-a665-3daeae9acb2c" loading="lazy"></a></p>
 
-<h1 id="root-flag">root flag</h1>
+<h1 id="root-flag">Root Flag</h1>
 
-<p>when we check the sudo priveleges for comte we see</p>
+<p>When we check the sudo privileges for <em>comte</em>, we see:</p>
 
 <p><a href="https://github.com/user-attachments/assets/f603fc92-83cb-4a1a-bb7d-64fb8e311f65" class="popup img-link shimmer"><img width="531" height="121" alt="image" src="https://github.com/user-attachments/assets/f603fc92-83cb-4a1a-bb7d-64fb8e311f65" loading="lazy"></a></p>
 
-<p>we see that the user reload the configuration files for systemd as well start a script called exploit.timer which will start the service exploit.service, lets see the script</p>
+<p>The user can reload the configuration files for systemd and start a script called <code class="language-plaintext highlighter-rouge">exploit.timer</code>, which in turn starts the service <code class="language-plaintext highlighter-rouge">exploit.service</code>. Let’s see the script:</p>
 
 <p><a href="https://github.com/user-attachments/assets/422eef2e-ff90-421b-b84b-2b93cfc8e506" class="popup img-link shimmer"><img width="703" height="284" alt="image" src="https://github.com/user-attachments/assets/422eef2e-ff90-421b-b84b-2b93cfc8e506" loading="lazy"></a></p>
 
-<p>let’s try and run the script</p>
+<p>Let’s try running the script:</p>
 
 <p><a href="https://github.com/user-attachments/assets/f875b906-27ee-4421-8160-5654cd7b953f" class="popup img-link shimmer"><img width="678" height="71" alt="image" src="https://github.com/user-attachments/assets/f875b906-27ee-4421-8160-5654cd7b953f" loading="lazy"></a></p>
 
-<p>it wont run! thats because the OnBootSec= parameter is empty which specifies to systemd when to to start the timer after reload
-lets add the missing value and execute the script</p>
+<p>It won’t run! That’s because the <code class="language-plaintext highlighter-rouge">OnBootSec=</code> parameter is empty, which specifies to systemd when to start the timer after reload.<br />
+Let’s add the missing value and execute the script.</p>
 
 <p><a href="https://github.com/user-attachments/assets/df0d082a-dac4-4296-ab05-5fa82c6a33e1" class="popup img-link shimmer"><img width="686" height="294" alt="image" src="https://github.com/user-attachments/assets/df0d082a-dac4-4296-ab05-5fa82c6a33e1" loading="lazy"></a></p>
 
-<p>now checking for binaries with the suid set reveals a binary called xdd</p>
+<p>Now, checking for binaries with the SUID bit set reveals a binary called <code class="language-plaintext highlighter-rouge">xdd</code>.</p>
 
 <p><a href="https://github.com/user-attachments/assets/ec6e4a20-71ae-4ecd-9a62-d43b6125ae1b" class="popup img-link shimmer"><img width="1176" height="497" alt="image" src="https://github.com/user-attachments/assets/ec6e4a20-71ae-4ecd-9a62-d43b6125ae1b" loading="lazy"></a></p>
 
-<p>we can check gtfobins and realize we can use it to read files so we use it to read  the flag</p>
+<p>Looking it up on <a href="https://gtfobins.github.io/">GTFOBins</a>, we see that it can be abused to read files.<br />
+We use it to read the flag:</p>
 
 <p><a href="https://github.com/user-attachments/assets/8beec053-aeda-4ec7-819d-5786dd0d6399" class="popup img-link shimmer"><img width="579" height="171" alt="image" src="https://github.com/user-attachments/assets/8beec053-aeda-4ec7-819d-5786dd0d6399" loading="lazy"></a></p>
 
