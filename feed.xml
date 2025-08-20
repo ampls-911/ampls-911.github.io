@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-20T02:20:14+01:00</updated>
+  <updated>2025-08-20T04:15:39+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -17,6 +17,30 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>TryHackMe | Cheese CTF</title>
+    <link href="https://ampls-911.github.io/posts/Cheese_CTF/" rel="alternate" type="text/html" title="TryHackMe | Cheese CTF" />
+    <published>2025-08-20T03:00:00+01:00</published>
+  
+    <updated>2025-08-20T03:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/Cheese_CTF/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/Cheese_CTF/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="TryHackMe" />
+    
+  
+
+  <summary>Enumeration  in the Reconnaissance phase i started by using nmap to enumerate the open ports, after a while nmap returns a very long list. we see that a lot of ports of interest are open like http and ssh      we can access the web page by visiting http://10.10.15.229:80/  Enumeration  i tried enumerating folders but it didn’t lead anywhere.    browsing the site we can find a login page on http...</summary>
+
+  </entry>
 
   
   <entry>
