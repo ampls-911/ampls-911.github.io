@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-20T05:54:40+01:00</updated>
+  <updated>2025-08-20T06:04:32+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -38,7 +38,7 @@
     
   
 
-  <summary>Reconnaissance  In the reconnaissance phase, I started by using Nmap to enumerate the open ports. After a while, Nmap returned a very long list. We can see that a lot of ports of interest are open, such as HTTP and SSH.      We can access the webpage by visiting http://10.10.15.229:80/.    I tried enumerating folders, but it didn’t lead anywhere.    While browsing the site, we find a login page...</summary>
+  <summary>Summary  In this room, we leverage an SQL injection exploit to bypass authentication on a login page. Further investigation on the webpage reveals an LFI vulnerability that allows us to achieve RCE via a crafted PHP payload using PHP filters. After obtaining a shell with a system account, we can escalate to user by creating and adding our RSA key to the authorized_keys file of the user comte. T...</summary>
 
   </entry>
 

@@ -32,8 +32,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="TryHackMe Cheese CTF" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Reconnaissance" />
-<meta property="og:description" content="Reconnaissance" />
+<meta name="description" content="Summary" />
+<meta property="og:description" content="Summary" />
 <link rel="canonical" href="https://ampls-911.github.io/posts/Cheese_CTF/" />
 <meta property="og:url" content="https://ampls-911.github.io/posts/Cheese_CTF/" />
 <meta property="og:site_name" content="ampls" />
@@ -44,7 +44,7 @@
 <meta property="twitter:image" content="https://github.com/user-attachments/assets/6c2f9476-ee67-40e4-8f86-cdc842490bd0" />
 <meta property="twitter:title" content="TryHackMe Cheese CTF" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-20T03:00:00+01:00","datePublished":"2025-08-20T03:00:00+01:00","description":"Reconnaissance","headline":"TryHackMe Cheese CTF","image":"https://github.com/user-attachments/assets/6c2f9476-ee67-40e4-8f86-cdc842490bd0","mainEntityOfPage":{"@type":"WebPage","@id":"https://ampls-911.github.io/posts/Cheese_CTF/"},"url":"https://ampls-911.github.io/posts/Cheese_CTF/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-20T03:00:00+01:00","datePublished":"2025-08-20T03:00:00+01:00","description":"Summary","headline":"TryHackMe Cheese CTF","image":"https://github.com/user-attachments/assets/6c2f9476-ee67-40e4-8f86-cdc842490bd0","mainEntityOfPage":{"@type":"WebPage","@id":"https://ampls-911.github.io/posts/Cheese_CTF/"},"url":"https://ampls-911.github.io/posts/Cheese_CTF/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -2566,7 +2566,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="441 words"
+  title="534 words"
 >
   <em>2 min</em> read</span>
 
@@ -2578,7 +2578,11 @@
   
 
   <div class="content">
-    <h1 id="reconnaissance">Reconnaissance</h1>
+    <h1 id="summary">Summary</h1>
+
+<p>In this room, we leverage an SQL injection exploit to bypass authentication on a login page. Further investigation on the webpage reveals an LFI vulnerability that allows us to achieve RCE via a crafted PHP payload using PHP filters. After obtaining a shell with a system account, we can escalate to user by creating and adding our RSA key to the authorized_keys file of the user comte. To gain the root shell, we have to edit a script that activates a SUID binary, which we can leverage to read and write files.</p>
+
+<h1 id="reconnaissance">Reconnaissance</h1>
 
 <p>In the reconnaissance phase, I started by using Nmap to enumerate the open ports. After a while, Nmap returned a very long list.<br />
 We can see that a lot of ports of interest are open, such as HTTP and SSH.</p>
