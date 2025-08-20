@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-20T05:31:03+01:00</updated>
+  <updated>2025-08-20T05:35:21+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -20,21 +20,19 @@
 
   
   <entry>
-    <title>TryHackMe | Cheese CTF</title>
-    <link href="https://ampls-911.github.io/posts/Cheese_CTF/" rel="alternate" type="text/html" title="TryHackMe | Cheese CTF" />
-    <published>2025-08-20T03:00:00+01:00</published>
+    <title></title>
+    <link href="https://ampls-911.github.io/posts/2025-08-20-Cheese_CTF/" rel="alternate" type="text/html" title="" />
+    <published>2025-08-20T05:35:21+01:00</published>
   
-    <updated>2025-08-20T03:00:00+01:00</updated>
+    <updated>2025-08-20T05:35:21+01:00</updated>
   
-    <id>https://ampls-911.github.io/posts/Cheese_CTF/</id>
-    <content type="text/html" src="https://ampls-911.github.io/posts/Cheese_CTF/" />
+    <id>https://ampls-911.github.io/posts/2025-08-20-Cheese_CTF/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/2025-08-20-Cheese_CTF/" />
     <author>
       <name>Garaali Mohamed Amine</name>
     </author>
 
   
-    
-    <category term="TryHackMe" />
     
   
 
