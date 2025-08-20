@@ -32,8 +32,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="TryHackMe Cheese CTF" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Enumeration" />
-<meta property="og:description" content="Enumeration" />
+<meta name="description" content="Reconnaissance" />
+<meta property="og:description" content="Reconnaissance" />
 <link rel="canonical" href="https://ampls-911.github.io/posts/Cheese_CTF/" />
 <meta property="og:url" content="https://ampls-911.github.io/posts/Cheese_CTF/" />
 <meta property="og:site_name" content="ampls" />
@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="TryHackMe Cheese CTF" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-20T03:00:00+01:00","datePublished":"2025-08-20T03:00:00+01:00","description":"Enumeration","headline":"TryHackMe Cheese CTF","mainEntityOfPage":{"@type":"WebPage","@id":"https://ampls-911.github.io/posts/Cheese_CTF/"},"url":"https://ampls-911.github.io/posts/Cheese_CTF/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-20T03:00:00+01:00","datePublished":"2025-08-20T03:00:00+01:00","description":"Reconnaissance","headline":"TryHackMe Cheese CTF","mainEntityOfPage":{"@type":"WebPage","@id":"https://ampls-911.github.io/posts/Cheese_CTF/"},"url":"https://ampls-911.github.io/posts/Cheese_CTF/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -2385,7 +2385,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="451 words"
+  title="456 words"
 >
   <em>2 min</em> read</span>
 
@@ -2397,7 +2397,7 @@
   
 
   <div class="content">
-    <h1 id="enumeration">Enumeration</h1>
+    <h1 id="reconnaissance">Reconnaissance</h1>
 
 <p>in the Reconnaissance phase i started by using nmap to enumerate the open ports, after a while nmap returns a very long list.
 we see that a lot of ports of interest are open like http and ssh</p>
@@ -2408,7 +2408,7 @@ we see that a lot of ports of interest are open like http and ssh</p>
 
 <p>we can access the web page by visiting <code class="language-plaintext highlighter-rouge">http://10.10.15.229:80/</code></p>
 
-<h1 id="enumeration-1">Enumeration</h1>
+<h1 id="sqli-auth-bypass">SQLI AUTH Bypass</h1>
 
 <p>i tried enumerating folders but it didn’t lead anywhere.</p>
 
@@ -2431,6 +2431,8 @@ we see that a lot of ports of interest are open like http and ssh</p>
 <p>so knowing the username parameter is injectable i tried some payloads and eventually this worked <code class="language-plaintext highlighter-rouge">' || 1=1;-- -</code> and we were able to bypass the authetication process</p>
 
 <p><a href="https://github.com/user-attachments/assets/b37493e5-6140-450c-b102-6d46e8c87480" class="popup img-link shimmer"><img width="1266" height="792" alt="image" src="https://github.com/user-attachments/assets/b37493e5-6140-450c-b102-6d46e8c87480" loading="lazy"></a></p>
+
+<h1 id="lfi-and-rce">LFI and RCE</h1>
 
 <p>visiting the messages section of the site we see a clickable link that sends you to a page with the message : If you know, you know :D</p>
 
