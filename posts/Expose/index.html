@@ -1999,7 +1999,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="445 words"
+  title="467 words"
 >
   <em>2 min</em> read</span>
 
@@ -2061,8 +2061,9 @@
 
 <p><a href="https://github.com/user-attachments/assets/78533700-1263-4b8a-b012-6c20dfe390e2" class="popup img-link shimmer"><img width="516" height="70" alt="image" src="https://github.com/user-attachments/assets/78533700-1263-4b8a-b012-6c20dfe390e2" loading="lazy"></a></p>
 
-<p>Testing the parameter with <code class="language-plaintext highlighter-rouge">?file=</code> shows that we can include files. For example, using a world-readable file like <code class="language-plaintext highlighter-rouge">/etc/passwd</code>:<br />
-<code class="language-plaintext highlighter-rouge">http://10.10.137.122:1337/file1010111/index.php?file=/etc/passwd</code></p>
+<p>So we try just that, we can test the parameter by adding <code class="language-plaintext highlighter-rouge">?file=&lt;file_to_read&gt;</code> to the URL, this will allows us to read files that we have permissions to read. So we test with a world readable file like <code class="language-plaintext highlighter-rouge">/etc/passwd</code>:</p>
+
+<p>Full URL: <code class="language-plaintext highlighter-rouge">http://10.10.137.122:1337/file1010111/index.php?file=/etc/passwd</code></p>
 
 <p><a href="https://github.com/user-attachments/assets/d1409757-31f2-44d6-a2d8-5338347a3d36" class="popup img-link shimmer"><img width="1277" height="652" alt="image" src="https://github.com/user-attachments/assets/d1409757-31f2-44d6-a2d8-5338347a3d36" loading="lazy"></a></p>
 
