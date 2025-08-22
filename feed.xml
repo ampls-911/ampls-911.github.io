@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-22T12:01:39+01:00</updated>
+  <updated>2025-08-22T12:06:37+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -38,7 +38,7 @@
     
   
 
-  <summary>Reconnaissance  for initial reconnaissance i used this nmap command to scan for open ports sudo nmap -sS -sV 10.10.188.185 -p-    we can see that there is a web server on the port 1337 accessing the site with this url http://10.10.188.185:1337 we are met with a basic html page, so we enemurate using ffuf :    we find 2 endpoints, admin and admin_101. when we visit the /admin_101 endpoint we see...</summary>
+  <summary>Reconnaissance  for initial reconnaissance i used this nmap command to scan for open ports sudo nmap -sS -sV 10.10.188.185 -p-    we can see that there is a web server on the port 1337 accessing the site with this url http://10.10.188.185:1337 we are met with a basic html page, so we enemurate using ffuf :    we find 2 endpoints, admin and admin_101.  sqli db dump  when we visit the /admin_101 ...</summary>
 
   </entry>
 

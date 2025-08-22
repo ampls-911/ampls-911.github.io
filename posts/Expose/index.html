@@ -1999,7 +1999,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="551 words"
+  title="557 words"
 >
   <em>3 min</em> read</span>
 
@@ -2021,7 +2021,11 @@
 
 <p><a href="https://github.com/user-attachments/assets/92654a58-5a01-4d2d-9a50-f25aff6b7b45" class="popup img-link shimmer"><img width="822" height="514" alt="image" src="https://github.com/user-attachments/assets/92654a58-5a01-4d2d-9a50-f25aff6b7b45" loading="lazy"></a></p>
 
-<p>we find 2 endpoints, <code class="language-plaintext highlighter-rouge">admin</code> and <code class="language-plaintext highlighter-rouge">admin_101</code>. when we visit the /admin_101 endpoint we see that the email is already set and in the source code the page actually sends the post request :</p>
+<p>we find 2 endpoints, <code class="language-plaintext highlighter-rouge">admin</code> and <code class="language-plaintext highlighter-rouge">admin_101</code>.</p>
+
+<h1 id="sqli-db-dump">sqli db dump</h1>
+
+<p>when we visit the /admin_101 endpoint we see that the email is already set and in the source code the page actually sends the post request :</p>
 
 <p><a href="https://github.com/user-attachments/assets/c5c89fe5-4180-4708-9410-5e59c104e04d" class="popup img-link shimmer"><img width="696" height="392" alt="image" src="https://github.com/user-attachments/assets/c5c89fe5-4180-4708-9410-5e59c104e04d" loading="lazy"></a></p>
 
@@ -2042,6 +2046,8 @@
 <p>using the password on the /admin_101 endpoint we get this webpage :</p>
 
 <p><a href="https://github.com/user-attachments/assets/2b9e9cab-c22b-4357-946f-5ba1d1d4121a" class="popup img-link shimmer"><img width="1270" height="708" alt="image" src="https://github.com/user-attachments/assets/2b9e9cab-c22b-4357-946f-5ba1d1d4121a" loading="lazy"></a></p>
+
+<h1 id="lfi-and-rce">LFI and RCE</h1>
 
 <p>when we use the first url from the <code class="language-plaintext highlighter-rouge">config</code> table from earlier and the password associated with it we get this message :</p>
 
