@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-22T12:59:19+01:00</updated>
+  <updated>2025-08-22T13:08:00+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -38,7 +38,7 @@
     
   
 
-  <summary>Reconnaissance  For initial reconnaissance, I used this nmap command to scan for open ports: sudo nmap -sS -sV -p- 10.10.188.185    We can see that there is a web server on port 1337. Accessing the site at http://10.10.188.185:1337 shows us a basic HTML page. To enumerate further, I ran ffuf:    We find two endpoints: admin and admin_101.  SQLi and Database Dump  Visiting /admin_101, we see tha...</summary>
+  <summary>Summary  In this room, we exploit a vulnerable parameter using sqlmap to dump the database, exposing critical endpoints that lead us to an LFI vulnerability. By bypassing file type restrictions, we are able to achieve remote code execution and gain a foothold on the system with a low-privileged account. From there, we discover insecure credentials that allow us to escalate to a user account. Fi...</summary>
 
   </entry>
 

@@ -32,8 +32,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="TryHackMe Expose" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Reconnaissance" />
-<meta property="og:description" content="Reconnaissance" />
+<meta name="description" content="Summary" />
+<meta property="og:description" content="Summary" />
 <link rel="canonical" href="https://ampls-911.github.io/posts/Expose/" />
 <meta property="og:url" content="https://ampls-911.github.io/posts/Expose/" />
 <meta property="og:site_name" content="ampls" />
@@ -44,7 +44,7 @@
 <meta property="twitter:image" content="https://github.com/user-attachments/assets/9f61af66-761c-4f9f-ab89-f4b0715995eb" />
 <meta property="twitter:title" content="TryHackMe Expose" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-22T03:00:00+01:00","datePublished":"2025-08-22T03:00:00+01:00","description":"Reconnaissance","headline":"TryHackMe Expose","image":"https://github.com/user-attachments/assets/9f61af66-761c-4f9f-ab89-f4b0715995eb","mainEntityOfPage":{"@type":"WebPage","@id":"https://ampls-911.github.io/posts/Expose/"},"url":"https://ampls-911.github.io/posts/Expose/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-22T03:00:00+01:00","datePublished":"2025-08-22T03:00:00+01:00","description":"Summary","headline":"TryHackMe Expose","image":"https://github.com/user-attachments/assets/9f61af66-761c-4f9f-ab89-f4b0715995eb","mainEntityOfPage":{"@type":"WebPage","@id":"https://ampls-911.github.io/posts/Expose/"},"url":"https://ampls-911.github.io/posts/Expose/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1999,9 +1999,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="475 words"
+  title="552 words"
 >
-  <em>2 min</em> read</span>
+  <em>3 min</em> read</span>
 
         </div>
       </div>
@@ -2011,7 +2011,11 @@
   
 
   <div class="content">
-    <h1 id="reconnaissance">Reconnaissance</h1>
+    <h1 id="summary">Summary</h1>
+
+<p>In this room, we exploit a vulnerable parameter using sqlmap to dump the database, exposing critical endpoints that lead us to an LFI vulnerability. By bypassing file type restrictions, we are able to achieve remote code execution and gain a foothold on the system with a low-privileged account. From there, we discover insecure credentials that allow us to escalate to a user account. Finally, we leverage a SUID binary to escalate privileges and obtain root access.</p>
+
+<h1 id="reconnaissance">Reconnaissance</h1>
 
 <p>For initial reconnaissance, I used this nmap command to scan for open ports:<br />
 <code class="language-plaintext highlighter-rouge">sudo nmap -sS -sV -p- 10.10.188.185</code></p>
