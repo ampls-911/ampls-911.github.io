@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-20T09:57:04+01:00</updated>
+  <updated>2025-08-22T12:01:39+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -17,6 +17,30 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>TryHackMe | Expose </title>
+    <link href="https://ampls-911.github.io/posts/Expose/" rel="alternate" type="text/html" title="TryHackMe | Expose " />
+    <published>2025-08-22T03:00:00+01:00</published>
+  
+    <updated>2025-08-22T03:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/Expose/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/Expose/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="TryHackMe" />
+    
+  
+
+  <summary>Reconnaissance  for initial reconnaissance i used this nmap command to scan for open ports sudo nmap -sS -sV 10.10.188.185 -p-    we can see that there is a web server on the port 1337 accessing the site with this url http://10.10.188.185:1337 we are met with a basic html page, so we enemurate using ffuf :    we find 2 endpoints, admin and admin_101. when we visit the /admin_101 endpoint we see...</summary>
+
+  </entry>
 
   
   <entry>
