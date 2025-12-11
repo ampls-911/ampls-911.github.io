@@ -1,0 +1,217 @@
+---
+title: "ML Project | Network Intrusion Detection System"
+date: 2024-12-11 14:00:00 +0100
+categories: [Machine Learning, Projects]
+tags: [ml, ids, random-forest, cicids2017, deployment, streamlit, huggingface]
+image:
+  path: https://github.com/user-attachments/assets/d22f99e8-d1be-4ed7-a0e5-8fa32545a9aa
+---
+
+# Network Intrusion Detection System using Machine Learning
+
+This project implements a **supervised binary classification system** for detecting network intrusions using the CICIDS2017 dataset. The Random Forest model achieved **99.96% accuracy**, outperforming Neural Network (99.46%) and Logistic Regression (94.05%) approaches.
+
+## 🚀 Live Demos
+
+Try the deployed applications:
+
+### **Streamlit Cloud Application**
+Interactive web interface for batch predictions and model exploration.
+
+🔗 **[Launch Streamlit App](https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/)**
+
+<a href="https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/" target="_blank">
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>
+</a>
+
+---
+
+### **Hugging Face Spaces**
+Gradio-powered interface with model information and usage guides.
+
+🔗 **[Launch Hugging Face App](https://huggingface.co/spaces/ampls/ML-Project-IDS)**
+
+<a href="https://huggingface.co/spaces/ampls/ML-Project-IDS" target="_blank">
+  <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-yellow?style=for-the-badge" alt="Hugging Face"/>
+</a>
+
+---
+
+## 📊 Project Overview
+
+### **Dataset: CICIDS2017**
+- **Total Samples:** 791,484 (balanced: 50% benign, 50% attack)
+- **Features:** 78 network flow characteristics
+- **Classes:** Binary classification (BENIGN vs ATTACK)
+- **Split:** 70% training, 15% validation, 15% testing
+
+### **Model Performance**
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+|-------|----------|-----------|--------|----------|
+| **Random Forest** | **99.96%** | **0.9996** | **0.9996** | **0.9996** |
+| Neural Network | 99.46% | 0.9946 | 0.9943 | 0.9945 |
+| Logistic Regression | 94.05% | 0.9351 | 0.9517 | 0.9433 |
+
+### **Key Results**
+- **Test Samples:** 118,728
+- **Total Errors:** 51 (0.04% error rate)
+- **False Negatives:** 12 (missed attacks)
+- **False Positives:** 39 (false alarms)
+- **Statistical Significance:** McNemar's test (p < 0.001)
+
+---
+
+## 🛠️ Technical Stack
+
+**Machine Learning:**
+- Random Forest (200 trees)
+- Neural Network (256-128-64 architecture)
+- Logistic Regression
+- Scikit-learn, TensorFlow/Keras
+
+**Deployment:**
+- Streamlit Cloud (web interface)
+- Hugging Face Spaces (Gradio framework)
+- GitHub Actions (CI/CD)
+
+**Data Processing:**
+- Pandas, NumPy
+- Feature engineering & preprocessing
+- Class balancing (undersampling)
+- 5-fold cross-validation
+
+---
+
+## 📂 GitHub Repository
+
+Full source code, documentation, and trained model available:
+
+🔗 **[View on GitHub](https://github.com/ampls-911/ML_streamlit)**
+
+<a href="https://github.com/ampls-911/ML_streamlit" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub"/>
+</a>
+
+---
+
+## 🎓 Academic Context
+
+**Institution:** IT Business School  
+**Course:** Machine Learning - Semester 1, 2024-2025  
+**Supervisor:** Prof. Ahmed Ben Taleb  
+**Student:** Garaali Mohamed Amine
+
+---
+
+## 🔬 Methodology
+
+### **1. Data Pre-Processing**
+- Processed 2.8M network flows
+- Handled missing values, infinite values, and outliers
+- Applied undersampling: 791K balanced samples
+- Perfect 50-50 class distribution
+
+### **2. Exploratory Data Analysis**
+- Analyzed 78 network features
+- Correlation analysis and feature importance
+- Class distribution visualization
+- Train-validation-test split (70-15-15)
+
+### **3. Model Training**
+- Supervised learning approach
+- Three model architectures compared
+- 5-fold cross-validation
+- Early stopping to prevent overfitting
+
+### **4. Model Evaluation**
+- Comprehensive metrics: accuracy, precision, recall, F1-score
+- Confusion matrices for all models
+- ROC curves and precision-recall curves
+- Statistical significance testing
+
+### **5. Deployment**
+- Production-ready Random Forest model
+- Two deployment platforms for accessibility
+- Interactive web interfaces
+- Batch prediction capabilities
+
+---
+
+## 💡 Key Features
+
+**Streamlit Application:**
+- Upload CSV files for batch predictions
+- Real-time inference
+- Model performance metrics visualization
+- Feature importance analysis
+- Download prediction results
+
+**Hugging Face Application:**
+- 3-tab interface (Model Info, Batch Prediction, Usage Guide)
+- Gradio framework
+- Model specifications and architecture details
+- Example usage and documentation
+- Git LFS for large model file hosting
+
+---
+
+## 🎯 Use Cases
+
+- **Network Security Operations:** Real-time intrusion detection
+- **Security Information and Event Management (SIEM):** Integration with security tools
+- **Threat Intelligence:** Pattern analysis and attack classification
+- **Academic Research:** Benchmark for ML-based IDS approaches
+- **Education:** Demonstration of complete ML project lifecycle
+
+---
+
+## 📈 Future Improvements
+
+- Multi-class classification for specific attack types
+- Real-time streaming data processing
+- Integration with network monitoring tools
+- Advanced deep learning architectures
+- Adversarial robustness testing
+- Deployment on realistic imbalanced data
+
+---
+
+## 🌟 Try It Now!
+
+Both applications are **live and publicly accessible**. No installation or authentication required.
+
+**Choose your platform:**
+
+<div style="display: flex; gap: 20px; margin: 20px 0;">
+  <a href="https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/" target="_blank" style="text-decoration: none;">
+    <button style="background-color: #FF4B4B; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">
+      🚀 Launch Streamlit App
+    </button>
+  </a>
+  
+  <a href="https://huggingface.co/spaces/ampls/ML-Project-IDS" target="_blank" style="text-decoration: none;">
+    <button style="background-color: #FFD21E; color: black; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">
+      🤗 Launch Hugging Face App
+    </button>
+  </a>
+</div>
+
+---
+
+## 📞 Contact
+
+For questions, collaboration, or feedback:
+
+- **GitHub:** [github.com/ampls-911](https://github.com/ampls-911)
+- **Project Repository:** [github.com/ampls-911/ML_streamlit](https://github.com/ampls-911/ML_streamlit)
+
+---
+
+## 📄 License
+
+This project is open source and available for academic and educational purposes.
+
+---
+
+*Project completed as part of the Machine Learning course at IT Business School, Fall 2024.*
