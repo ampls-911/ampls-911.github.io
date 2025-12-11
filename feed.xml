@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2025-08-22T13:08:00+01:00</updated>
+  <updated>2025-12-11T17:52:03+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -63,6 +63,32 @@
   
 
   <summary>Summary  In this room, we leverage an SQL injection exploit to bypass authentication on a login page. Further investigation on the webpage reveals an LFI vulnerability that allows us to achieve RCE via a crafted PHP payload using PHP filters. After obtaining a shell with a system account, we can escalate to user by creating and adding our RSA key to the authorized_keys file of the user comte. T...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>ML Project | Network Intrusion Detection System</title>
+    <link href="https://ampls-911.github.io/posts/ML/" rel="alternate" type="text/html" title="ML Project | Network Intrusion Detection System" />
+    <published>2024-12-11T14:00:00+01:00</published>
+  
+    <updated>2024-12-11T14:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/ML/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/ML/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="Machine Learning" />
+    
+    <category term="Projects" />
+    
+  
+
+  <summary>Network Intrusion Detection System using Machine Learning  This project implements a supervised binary classification system for detecting network intrusions using the CICIDS2017 dataset. The Random Forest model achieved 99.96% accuracy, outperforming Neural Network (99.46%) and Logistic Regression (94.05%) approaches.  🚀 Live Demos  Try the deployed applications:  Streamlit Cloud Application I...</summary>
 
   </entry>
 
