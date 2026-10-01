@@ -24,6 +24,8 @@ Everything is on [GitHub](https://github.com/ampls-911/enterprise-network-securi
 - [Packet Tracer topology](https://github.com/ampls-911/enterprise-network-security-siem/blob/main/packet-tracer/topology.pkt) · [Wazuh agent configs and auditd rules](https://github.com/ampls-911/enterprise-network-security-siem/tree/main/wazuh) · [attack and hardening notes](https://github.com/ampls-911/enterprise-network-security-siem/tree/main/scripts)
 
 # Phase 1 — the network
+![Packet Tracer simulation running the connectivity tests](https://github.com/user-attachments/assets/a516faff-cbd6-46df-8097-e45cef759e2a)
+_Live traffic simulation across the TechPulse topology_ 
 
 TechPulse is a 35-person company that handles client data, so the design is built around defense in depth: several independent layers, so that one failure does not open up the whole network.
 
