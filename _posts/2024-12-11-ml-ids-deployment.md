@@ -7,45 +7,31 @@ image:
   path: https://github.com/user-attachments/assets/d22f99e8-d1be-4ed7-a0e5-8fa32545a9aa
 ---
 
-# Network Intrusion Detection System using Machine Learning
+# Summary
 
-This project implements a **supervised binary classification system** for detecting network intrusions using the CICIDS2017 dataset. The Random Forest model achieved **99.96% accuracy**, outperforming Neural Network (99.46%) and Logistic Regression (94.05%) approaches.
+This was my project for the Machine Learning course at IT Business School. I trained a binary classifier on the CICIDS2017 dataset that takes a network flow and labels it as benign or attack. I tried three models: a Random Forest, a neural network and logistic regression. The Random Forest did best with 99.96% accuracy on the test set, so that is the one I deployed.
 
-## 🚀 Live Demos
+The code and the trained model are on [GitHub](https://github.com/ampls-911/ML_streamlit). You can try the model in the [Streamlit app](https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/) or the [Hugging Face Space](https://huggingface.co/spaces/ampls/ML-Project-IDS).
 
-Try the deployed applications:
+# Dataset
 
-### **Streamlit Cloud Application**
-Interactive web interface for batch predictions and model exploration.
+CICIDS2017 has about 2.8 million labelled network flows with 78 features each. The original labels name the attack type, but I merged them all into a single ATTACK class, so the problem is BENIGN vs ATTACK.
 
-🔗 **[Launch Streamlit App](https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/)**
+The raw data needed cleaning first. It contains missing values, infinite values and outliers, and I dealt with those before doing anything else.
 
-<a href="https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/" target="_blank">
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>
-</a>
+The dataset is also very imbalanced, with far more benign flows than attacks. I undersampled the benign class and ended up with 791,484 flows, 50% benign and 50% attack. I then split that 70/15/15 into training, validation and test sets.
 
----
+# Models
 
-### **Hugging Face Spaces**
-Gradio-powered interface with model information and usage guides.
+I trained three models on the same split:
 
-🔗 **[Launch Hugging Face App](https://huggingface.co/spaces/ampls/ML-Project-IDS)**
+- Random Forest with 200 trees (scikit-learn)
+- Neural network with three hidden layers of 256, 128 and 64 units (TensorFlow/Keras), with early stopping
+- Logistic regression as a baseline
 
-<a href="https://huggingface.co/spaces/ampls/ML-Project-IDS" target="_blank">
-  <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-yellow?style=for-the-badge" alt="Hugging Face"/>
-</a>
+I used 5-fold cross-validation during training. The test set was only used for the final evaluation.
 
----
-
-## 📊 Project Overview
-
-### **Dataset: CICIDS2017**
-- **Total Samples:** 791,484 (balanced: 50% benign, 50% attack)
-- **Features:** 78 network flow characteristics
-- **Classes:** Binary classification (BENIGN vs ATTACK)
-- **Split:** 70% training, 15% validation, 15% testing
-
-### **Model Performance**
+# Results
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |-------|----------|-----------|--------|----------|
@@ -53,165 +39,39 @@ Gradio-powered interface with model information and usage guides.
 | Neural Network | 99.46% | 0.9946 | 0.9943 | 0.9945 |
 | Logistic Regression | 94.05% | 0.9351 | 0.9517 | 0.9433 |
 
-### **Key Results**
-- **Test Samples:** 118,728
-- **Total Errors:** 51 (0.04% error rate)
-- **False Negatives:** 12 (missed attacks)
-- **False Positives:** 39 (false alarms)
-- **Statistical Significance:** McNemar's test (p < 0.001)
+Logistic regression already gets 94%, so the two classes are fairly easy to separate with these features. The neural network and the Random Forest are both above 99%, with the Random Forest slightly ahead. I ran McNemar's test to check that the difference between the models is significant, and it is (p < 0.001).
 
----
+The test set has 118,728 flows. The Random Forest got 51 of them wrong: 12 attacks were classified as benign, and 39 benign flows were flagged as attacks.
 
-## 🛠️ Technical Stack
+The 12 missed attacks are the worse kind of error for an IDS, since those are attacks that go through unnoticed. The 39 false alarms matter too. That is about 330 per million flows, and on a busy network that many false alerts would be a lot for an analyst to go through.
 
-**Machine Learning:**
-- Random Forest (200 trees)
-- Neural Network (256-128-64 architecture)
-- Logistic Regression
-- Scikit-learn, TensorFlow/Keras
+# Limitations
 
-**Deployment:**
-- Streamlit Cloud (web interface)
-- Hugging Face Spaces (Gradio framework)
-- GitHub Actions (CI/CD)
+99.96% looks great, but I would not expect this model to do that well on a real network.
 
-**Data Processing:**
-- Pandas, NumPy
-- Feature engineering & preprocessing
-- Class balancing (undersampling)
-- 5-fold cross-validation
+The main reason is the balancing. My test set is half attacks, while real traffic is almost all benign. On real traffic most of the alerts would be false alarms, even with the same error rates.
 
----
+The training and test data also come from the same capture, meaning the same network and the same week in 2017. I have not tested the model on traffic from anywhere else, so I don't know how well it generalizes.
 
-## 📂 GitHub Repository
+CICIDS2017 itself has known issues. Engelen et al. found labelling and flow construction errors in it ("Troubleshooting an Intrusion Detection Dataset: the CICIDS2017 Case Study", 2021), and very high scores on this dataset are common in other papers too.
 
-Full source code, documentation, and trained model available:
+Finally, the model only says attack or benign, not which attack, and I did not test it against traffic that is crafted to evade detection.
 
-🔗 **[View on GitHub](https://github.com/ampls-911/ML_streamlit)**
+# Deployment
 
-<a href="https://github.com/ampls-911/ML_streamlit" target="_blank">
-  <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub"/>
-</a>
+I deployed the Random Forest on two platforms.
 
----
+The Streamlit app lets you upload a CSV of flows and get predictions for all of them, which you can then download. It also shows the model's metrics and the feature importances.
 
-## 🎓 Academic Context
+The Hugging Face Space uses Gradio and has three tabs: model info, batch prediction and a usage guide. The model file is too big for a normal git repo, so it is stored with Git LFS.
 
-**Institution:** IT Business School  
-**Course:** Machine Learning - Semester 1, 2024-2025  
-**Supervisor:** Prof. Ahmed Ben Taleb  
-**Student:** Garaali Mohamed Amine
+Both apps expect a CSV of flow features, not raw packets, so they are demos and not something you can connect to a live network.
 
----
+# Future work
 
-## 🔬 Methodology
-
-### **1. Data Pre-Processing**
-- Processed 2.8M network flows
-- Handled missing values, infinite values, and outliers
-- Applied undersampling: 791K balanced samples
-- Perfect 50-50 class distribution
-
-### **2. Exploratory Data Analysis**
-- Analyzed 78 network features
-- Correlation analysis and feature importance
-- Class distribution visualization
-- Train-validation-test split (70-15-15)
-
-### **3. Model Training**
-- Supervised learning approach
-- Three model architectures compared
-- 5-fold cross-validation
-- Early stopping to prevent overfitting
-
-### **4. Model Evaluation**
-- Comprehensive metrics: accuracy, precision, recall, F1-score
-- Confusion matrices for all models
-- ROC curves and precision-recall curves
-- Statistical significance testing
-
-### **5. Deployment**
-- Production-ready Random Forest model
-- Two deployment platforms for accessibility
-- Interactive web interfaces
-- Batch prediction capabilities
-
----
-
-## 💡 Key Features
-
-**Streamlit Application:**
-- Upload CSV files for batch predictions
-- Real-time inference
-- Model performance metrics visualization
-- Feature importance analysis
-- Download prediction results
-
-**Hugging Face Application:**
-- 3-tab interface (Model Info, Batch Prediction, Usage Guide)
-- Gradio framework
-- Model specifications and architecture details
-- Example usage and documentation
-- Git LFS for large model file hosting
-
----
-
-## 🎯 Use Cases
-
-- **Network Security Operations:** Real-time intrusion detection
-- **Security Information and Event Management (SIEM):** Integration with security tools
-- **Threat Intelligence:** Pattern analysis and attack classification
-- **Academic Research:** Benchmark for ML-based IDS approaches
-- **Education:** Demonstration of complete ML project lifecycle
-
----
-
-## 📈 Future Improvements
-
-- Multi-class classification for specific attack types
-- Real-time streaming data processing
-- Integration with network monitoring tools
-- Advanced deep learning architectures
+- Test on imbalanced data that is closer to real traffic
+- Multi-class classification, to identify the attack type
 - Adversarial robustness testing
-- Deployment on realistic imbalanced data
+- Real-time processing and integration with a network monitoring tool
 
----
-
-## 🌟 Try It Now!
-
-Both applications are **live and publicly accessible**. No installation or authentication required.
-
-**Choose your platform:**
-
-<div style="display: flex; gap: 20px; margin: 20px 0;">
-  <a href="https://mlapp-vjxvm6hnwohgftvqh4ep8g.streamlit.app/" target="_blank" style="text-decoration: none;">
-    <button style="background-color: #FF4B4B; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">
-      🚀 Launch Streamlit App
-    </button>
-  </a>
-  
-  <a href="https://huggingface.co/spaces/ampls/ML-Project-IDS" target="_blank" style="text-decoration: none;">
-    <button style="background-color: #FFD21E; color: black; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">
-      🤗 Launch Hugging Face App
-    </button>
-  </a>
-</div>
-
----
-
-## 📞 Contact
-
-For questions, collaboration, or feedback:
-
-- **GitHub:** [github.com/ampls-911](https://github.com/ampls-911)
-- **Project Repository:** [github.com/ampls-911/ML_streamlit](https://github.com/ampls-911/ML_streamlit)
-
----
-
-## 📄 License
-
-This project is open source and available for academic and educational purposes.
-
----
-
-*Project completed as part of the Machine Learning course at IT Business School, Fall 2024.*
+*Project supervised by Prof. Ahmed Ben Taleb, Machine Learning course, IT Business School, Semester 1, 2024-2025.*
