@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2026-10-01T23:48:43+01:00</updated>
+  <updated>2026-10-02T00:03:26+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -88,7 +88,7 @@
     
   
 
-  <summary>Network Intrusion Detection System using Machine Learning  This project implements a supervised binary classification system for detecting network intrusions using the CICIDS2017 dataset. The Random Forest model achieved 99.96% accuracy, outperforming Neural Network (99.46%) and Logistic Regression (94.05%) approaches.  🚀 Live Demos  Try the deployed applications:  Streamlit Cloud Application I...</summary>
+  <summary>Summary  This was my project for the Machine Learning course at IT Business School. I trained a binary classifier on the CICIDS2017 dataset that takes a network flow and labels it as benign or attack. I tried three models: a Random Forest, a neural network and logistic regression. The Random Forest did best with 99.96% accuracy on the test set, so that is the one I deployed.  The code and the t...</summary>
 
   </entry>
 
