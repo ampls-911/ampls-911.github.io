@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2026-10-02T00:03:26+01:00</updated>
+  <updated>2026-10-02T00:16:44+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Enterprise Network &amp; SIEM | TechPulse Analytics</title>
+    <link href="https://ampls-911.github.io/posts/techpulse-enterprise-network-siem/" rel="alternate" type="text/html" title="Enterprise Network &amp;amp; SIEM | TechPulse Analytics" />
+    <published>2026-04-15T14:00:00+01:00</published>
+  
+    <updated>2026-04-15T14:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/techpulse-enterprise-network-siem/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/techpulse-enterprise-network-siem/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="Projects" />
+    
+    <category term="Blue Team" />
+    
+  
+
+  <summary>Summary  This was my cybersecurity engineering project. I designed an enterprise network for a made-up data analytics company, TechPulse Analytics, and then built a working SIEM lab that monitors part of that network. The two pieces are meant to be one system: the SIEM lab is the SOC segment (VLAN 10) of the network I designed.  The network side is a Cisco Packet Tracer topology with nine VLANs...</summary>
+
+  </entry>
 
   
   <entry>
