@@ -3,6 +3,10 @@ title: "Cloud Network Supervision on GCP: From Flow Logs to BigQuery"
 date: 2026-04-20 14:00:00 +0100
 categories: [Projects, Cloud]
 tags: [gcp, cloud, networking, bigquery, vpc-flow-logs, cloud-monitoring, looker-studio, observability]
+image:
+  path: https://github.com/user-attachments/assets/3130e1c4-3ae0-40d0-9ca9-32587b1d9bce
+
+
 ---
 
 # Summary
