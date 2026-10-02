@@ -1099,9 +1099,8 @@
 <p>On Linux I extended FIM to <code class="language-plaintext highlighter-rouge">/home</code>, <code class="language-plaintext highlighter-rouge">/tmp</code>, <code class="language-plaintext highlighter-rouge">/root</code> and <code class="language-plaintext highlighter-rouge">/var/log</code>, and wrote 13 auditd rules covering privileged command execution, access to <code class="language-plaintext highlighter-rouge">/etc/shadow</code> and <code class="language-plaintext highlighter-rouge">/etc/sudoers</code>, SSH config changes, cron persistence and kernel module loading.</p>
 
 <h2 id="attacks-and-what-the-siem-saw"><span class="me-2">Attacks and what the SIEM saw</span><a href="#attacks-and-what-the-siem-saw" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p><a href="https://github.com/user-attachments/assets/162bd2c5-9b55-44d4-9715-b3333781e446" class="popup img-link shimmer"><img src="https://github.com/user-attachments/assets/162bd2c5-9b55-44d4-9715-b3333781e446" alt="Hydra SSH brute force cracking the weak password, then privilege escalation to root via pkexec" loading="lazy"></a>
-<em>Hydra cracks the weak <code class="language-plaintext highlighter-rouge">wazuh-agent</code> password, then a SUID <code class="language-plaintext highlighter-rouge">pkexec</code> binary is used to escalate to root</em>
-The point of the lab was not to pull off the attacks, which are well known, but to see what reaches the dashboard.</p>
+
+<p>The point of the lab was not to pull off the attacks, which are well known, but to see what reaches the dashboard.</p>
 
 <p><strong>Windows (<a href="https://github.com/NextronSystems/APTSimulator">APTSimulator</a>).</strong> Running the full suite as administrator, the SIEM raised 13 alerts across five <a href="https://attack.mitre.org">MITRE ATT&amp;CK</a> tactics in one go. Three stood out:</p>
 
@@ -1137,6 +1136,9 @@ The point of the lab was not to pull off the attacks, which are well known, but 
 </table></div>
 
 <p>The takeaway is that Sysmon is doing the heavy lifting. Without it, most of these simply would not be visible to Wazuh.</p>
+
+<p><a href="https://github.com/user-attachments/assets/162bd2c5-9b55-44d4-9715-b3333781e446" class="popup img-link shimmer"><img src="https://github.com/user-attachments/assets/162bd2c5-9b55-44d4-9715-b3333781e446" alt="Hydra SSH brute force cracking the weak password, then privilege escalation to root via pkexec" loading="lazy"></a>
+<em>Hydra cracks the weak <code class="language-plaintext highlighter-rouge">wazuh-agent</code> password, then a SUID <code class="language-plaintext highlighter-rouge">pkexec</code> binary is used to escalate to root</em></p>
 
 <p><strong>Linux.</strong> I gave the agent account a weak password from the rockyou list and ran a <a href="https://github.com/vanhauser-thc/thc-hydra">Hydra</a> SSH brute force against it from Kali. Wazuh logged the failed attempts, fired its brute-force rule once a threshold was crossed, and then logged the successful login after the failures, which is exactly the sequence you want to see. I then used a deliberately planted <code class="language-plaintext highlighter-rouge">sudo</code> misconfiguration to escalate to root via a <a href="https://gtfobins.github.io/">GTFOBins</a> technique, and the auditd rules caught the privileged command and the read of <code class="language-plaintext highlighter-rouge">/etc/shadow</code>.</p>
 
