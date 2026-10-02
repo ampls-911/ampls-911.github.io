@@ -3,6 +3,9 @@ title: "Building an End-to-End DevOps Pipeline: CI/CD to Kubernetes with GitOps"
 date: 2026-05-01 14:00:00 +0100
 categories: [Projects, DevOps]
 tags: [devops, cicd, github-actions, docker, kubernetes, argocd, gitops, prometheus, trivy, sonarcloud]
+image:
+  path: https://github.com/user-attachments/assets/df0255da-1141-4c9e-882c-aa208268d221
+
 ---
 
 # Summary
