@@ -2,7 +2,7 @@
 title: "Enterprise Network & SIEM | TechPulse Analytics"
 date: 2026-04-15 14:00:00 +0100
 categories: [Projects, Blue Team]
-tags: [siem, wazuh, cisco, packet-tracer, vlan, hardening, cis-benchmark, mitre-attack, sysmon, auditd]
+tags: [siem, wazuh, cisco, packet-tracer, vlan, hardening, cis-benchmark, mitre-attack, sysmon, audit]
 image:
   path: https://github.com/user-attachments/assets/2985db5f-f810-49ad-8aff-d53e4cbd72f0
 
