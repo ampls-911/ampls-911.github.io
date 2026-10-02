@@ -86,8 +86,7 @@ On Windows I installed [Sysmon](https://learn.microsoft.com/en-us/sysinternals/d
 On Linux I extended FIM to `/home`, `/tmp`, `/root` and `/var/log`, and wrote 13 auditd rules covering privileged command execution, access to `/etc/shadow` and `/etc/sudoers`, SSH config changes, cron persistence and kernel module loading.
 
 ## Attacks and what the SIEM saw
-![Hydra SSH brute force cracking the weak password, then privilege escalation to root via pkexec](https://github.com/user-attachments/assets/162bd2c5-9b55-44d4-9715-b3333781e446)
-_Hydra cracks the weak `wazuh-agent` password, then a SUID `pkexec` binary is used to escalate to root_
+
 The point of the lab was not to pull off the attacks, which are well known, but to see what reaches the dashboard.
 
 **Windows ([APTSimulator](https://github.com/NextronSystems/APTSimulator)).** Running the full suite as administrator, the SIEM raised 13 alerts across five [MITRE ATT&CK](https://attack.mitre.org) tactics in one go. Three stood out:
@@ -99,6 +98,9 @@ The point of the lab was not to pull off the attacks, which are well known, but 
 | 92650 | 12 (high) | PsExec service installed | [T1021.002](https://attack.mitre.org/techniques/T1021/002/) / [T1569.002](https://attack.mitre.org/techniques/T1569/002/) |
 
 The takeaway is that Sysmon is doing the heavy lifting. Without it, most of these simply would not be visible to Wazuh.
+
+![Hydra SSH brute force cracking the weak password, then privilege escalation to root via pkexec](https://github.com/user-attachments/assets/162bd2c5-9b55-44d4-9715-b3333781e446)
+_Hydra cracks the weak `wazuh-agent` password, then a SUID `pkexec` binary is used to escalate to root_
 
 **Linux.** I gave the agent account a weak password from the rockyou list and ran a [Hydra](https://github.com/vanhauser-thc/thc-hydra) SSH brute force against it from Kali. Wazuh logged the failed attempts, fired its brute-force rule once a threshold was crossed, and then logged the successful login after the failures, which is exactly the sequence you want to see. I then used a deliberately planted `sudo` misconfiguration to escalate to root via a [GTFOBins](https://gtfobins.github.io/) technique, and the auditd rules caught the privileged command and the read of `/etc/shadow`.
 
