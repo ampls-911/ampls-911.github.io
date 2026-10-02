@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2026-10-02T02:59:00+01:00</updated>
+  <updated>2026-10-02T13:47:21+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -72,6 +72,32 @@
 
   
   <entry>
+    <title>Cloud Network Supervision on GCP: From Flow Logs to BigQuery</title>
+    <link href="https://ampls-911.github.io/posts/network-supervision-gcp-bigquery/" rel="alternate" type="text/html" title="Cloud Network Supervision on GCP: From Flow Logs to BigQuery" />
+    <published>2026-04-20T14:00:00+01:00</published>
+  
+    <updated>2026-04-20T14:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/network-supervision-gcp-bigquery/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/network-supervision-gcp-bigquery/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="Projects" />
+    
+    <category term="Cloud" />
+    
+  
+
+  <summary>Summary  For my Cloud Computing course I built a full network supervision pipeline on Google Cloud: a multi-region virtual network, monitored in real time, with every network connection logged, exported to BigQuery, and analyzed with SQL. The scenario is a company moving its network monitoring to the cloud across three continents.  The whole thing ran on GCP’s free tier plus student credits, an...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Enterprise Network &amp; SIEM | TechPulse Analytics</title>
     <link href="https://ampls-911.github.io/posts/techpulse-enterprise-network-siem/" rel="alternate" type="text/html" title="Enterprise Network &amp;amp; SIEM | TechPulse Analytics" />
     <published>2026-04-15T14:00:00+01:00</published>
@@ -117,30 +143,6 @@
   
 
   <summary>Summary  In this room, we exploit a vulnerable parameter using sqlmap to dump the database, exposing critical endpoints that lead us to an LFI vulnerability. By bypassing file type restrictions, we are able to achieve remote code execution and gain a foothold on the system with a low-privileged account. From there, we discover insecure credentials that allow us to escalate to a user account. Fi...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>TryHackMe | Cheese CTF</title>
-    <link href="https://ampls-911.github.io/posts/Cheese_CTF/" rel="alternate" type="text/html" title="TryHackMe | Cheese CTF" />
-    <published>2025-08-20T03:00:00+01:00</published>
-  
-    <updated>2025-08-20T03:00:00+01:00</updated>
-  
-    <id>https://ampls-911.github.io/posts/Cheese_CTF/</id>
-    <content type="text/html" src="https://ampls-911.github.io/posts/Cheese_CTF/" />
-    <author>
-      <name>Garaali Mohamed Amine</name>
-    </author>
-
-  
-    
-    <category term="TryHackMe" />
-    
-  
-
-  <summary>Summary  In this room, we leverage an SQL injection exploit to bypass authentication on a login page. Further investigation on the webpage reveals an LFI vulnerability that allows us to achieve RCE via a crafted PHP payload using PHP filters. After obtaining a shell with a system account, we can escalate to user by creating and adding our RSA key to the authorized_keys file of the user comte. T...</summary>
 
   </entry>
 
