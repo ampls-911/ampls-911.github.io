@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2026-10-02T01:39:10+01:00</updated>
+  <updated>2026-10-02T02:15:26+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -17,6 +17,32 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Deep Learning for Malware: MLP, CNN and a ViT from Scratch</title>
+    <link href="https://ampls-911.github.io/posts/malware-detection-deep-learning-mlp-cnn-vit/" rel="alternate" type="text/html" title="Deep Learning for Malware: MLP, CNN and a ViT from Scratch" />
+    <published>2026-06-10T14:00:00+01:00</published>
+  
+    <updated>2026-06-10T14:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/malware-detection-deep-learning-mlp-cnn-vit/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/malware-detection-deep-learning-mlp-cnn-vit/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="Projects" />
+    
+    <category term="Machine Learning" />
+    
+  
+
+  <summary>Academic note. This was a project for my Deep Learning course. No malware was ever executed, handled or distributed. Both datasets (EMBER and MalImg) are public research benchmarks of pre-extracted features and images, not live samples. The models are a learning exercise and are not meant for real security use.   Summary  I built a two-stage deep learning pipeline for static analysis of Windows...</summary>
+
+  </entry>
 
   
   <entry>
