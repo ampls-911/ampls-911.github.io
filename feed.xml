@@ -4,7 +4,7 @@
   <id>https://ampls-911.github.io/</id>
   <title>ampls</title>
   <subtitle>A personal site dedicated to cybersecurity writeups, tutorials, and reports by Garaali Mohamed Amine.</subtitle>
-  <updated>2026-10-02T02:47:07+01:00</updated>
+  <updated>2026-10-02T02:56:29+01:00</updated>
   <author>
     <name>Garaali Mohamed Amine</name>
     <uri>https://ampls-911.github.io/</uri>
@@ -41,6 +41,32 @@
   
 
   <summary>Academic note. This was a project for my Deep Learning course. No malware was ever executed, handled or distributed. Both datasets (EMBER and MalImg) are public research benchmarks of pre-extracted features and images, not live samples. The models are a learning exercise and are not meant for real security use.   Summary  I built a two-stage deep learning pipeline for static analysis of Windows...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Building an End-to-End DevOps Pipeline: CI/CD to Kubernetes with GitOps</title>
+    <link href="https://ampls-911.github.io/posts/devops-pipeline-cicd-kubernetes-argocd/" rel="alternate" type="text/html" title="Building an End-to-End DevOps Pipeline: CI/CD to Kubernetes with GitOps" />
+    <published>2026-05-01T14:00:00+01:00</published>
+  
+    <updated>2026-05-01T14:00:00+01:00</updated>
+  
+    <id>https://ampls-911.github.io/posts/devops-pipeline-cicd-kubernetes-argocd/</id>
+    <content type="text/html" src="https://ampls-911.github.io/posts/devops-pipeline-cicd-kubernetes-argocd/" />
+    <author>
+      <name>Garaali Mohamed Amine</name>
+    </author>
+
+  
+    
+    <category term="Projects" />
+    
+    <category term="DevOps" />
+    
+  
+
+  <summary>Summary  For my DevOps course I built a small web app and wrapped it in a full pipeline, from a git push all the way to running pods in Kubernetes, with security gates and monitoring along the way. The app itself is deliberately boring: the point was the pipeline, not the product.  The stack:     Frontend — a React landing page served by Nginx   Backend — a Node.js / Express REST API that also ...</summary>
 
   </entry>
 
@@ -115,32 +141,6 @@
   
 
   <summary>Summary  In this room, we leverage an SQL injection exploit to bypass authentication on a login page. Further investigation on the webpage reveals an LFI vulnerability that allows us to achieve RCE via a crafted PHP payload using PHP filters. After obtaining a shell with a system account, we can escalate to user by creating and adding our RSA key to the authorized_keys file of the user comte. T...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>ML Project | Network Intrusion Detection System</title>
-    <link href="https://ampls-911.github.io/posts/ml-ids-deployment/" rel="alternate" type="text/html" title="ML Project | Network Intrusion Detection System" />
-    <published>2024-12-11T14:00:00+01:00</published>
-  
-    <updated>2024-12-11T14:00:00+01:00</updated>
-  
-    <id>https://ampls-911.github.io/posts/ml-ids-deployment/</id>
-    <content type="text/html" src="https://ampls-911.github.io/posts/ml-ids-deployment/" />
-    <author>
-      <name>Garaali Mohamed Amine</name>
-    </author>
-
-  
-    
-    <category term="Machine Learning" />
-    
-    <category term="Projects" />
-    
-  
-
-  <summary>Summary  This was my project for the Machine Learning course at IT Business School. I trained a binary classifier on the CICIDS2017 dataset that takes a network flow and labels it as benign or attack. I tried three models: a Random Forest, a neural network and logistic regression. The Random Forest did best with 99.96% accuracy on the test set, so that is the one I deployed.  The code and the t...</summary>
 
   </entry>
 
