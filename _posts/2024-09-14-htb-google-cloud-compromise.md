@@ -185,4 +185,3 @@ The `gcp.audit.request.resource_name` of the last event:
 
 The whole thing took just over a minute: the attacker tried to touch the firewall and IAM, got blocked, then went straight for the bucket and grabbed the secret code.
 
-And just like that, the Sherlock is solved, and SOF-ELK is set up for the next one!
