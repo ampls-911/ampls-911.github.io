@@ -39,9 +39,10 @@ Running `ip -4 addr` gives us the VM's IP, and Kibana is then reachable from the
 
 The Sherlock gives us `gcp.json`, a JSON array of 6 Cloud Audit Log entries. SOF-ELK watches its folders for new files, so ingesting is just copying the file into `/logstash/gcp/`. I did it from my host with `scp`:
 
-`scp .\gcp.json elk_user@192.168.178.128:/logstash/gcp/`
+`scp .\gcp.json elk_user@<VM-IP>:/logstash/gcp/`
 
-> <img width="1056" height="219" alt="IMG-04-scp-transfer" src="https://github.com/user-attachments/assets/304b1d90-765d-47ff-94e8-4700dd599aab" />
+> <img width="1059" height="214" alt="Screenshot 2026-10-23 155433" src="https://github.com/user-attachments/assets/d53df2e4-1cad-4b58-ab05-ce94743c791d" />
+
  `scp` transfer in PowerShell
 
 To make sure it parsed correctly, I asked Elasticsearch how many documents it has in the GCP index:
