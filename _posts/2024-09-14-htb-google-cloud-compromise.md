@@ -28,7 +28,7 @@ I downloaded the x86 build from [https://for572.com/sof-elk-x86-vm](https://for5
 After extracting it, we get a `.vmx` file (the VM's configuration: RAM, CPU, network) and a `.vmdk` file (the virtual disk with the OS and SOF-ELK itself). Opening the `.vmx` in VMware Workstation loads the VM, and we can log in with `elk_user` / `forensics`:
 
 > <img width="686" height="598" alt="IMG-02-login-screen" src="https://github.com/user-attachments/assets/5d8490c3-38bc-4681-a459-055a1b05970a" />
- SOF-ELK login screen
+
 
 Running `ip -4 addr` gives us the VM's IP, and Kibana is then reachable from the host at `http://<vm-ip>:5601`:
 
@@ -49,7 +49,7 @@ To make sure it parsed correctly, I asked Elasticsearch how many documents it ha
 `curl -s 'localhost:9200/gcp-*/_count?pretty'`
 
 > <img width="547" height="297" alt="IMG-05-count-6" src="https://github.com/user-attachments/assets/8cebdee4-2bb4-483f-9383-bf0b6d582752" />
- `ls -l /logstash/gcp` and `_count` returning 6
+ 
 
 6 documents for 6 log entries, so everything was ingested.
 
@@ -85,7 +85,6 @@ I also noticed a few gaps in SOF-ELK's GCP parsing: the error status code isn't 
 My first guess was the long number in `projects/421111031168/services/...`, but that's the **project number**, an ID Google assigns automatically. What we want is the **project ID**, the human-readable identifier chosen when the project is created. It's in the `gcp.instance.project_id` field:
 
 > <img width="210" height="130" alt="IMG-09-project-id" src="https://github.com/user-attachments/assets/d0840665-b06e-4038-8b44-a2adc500a948" />
- `gcp.instance.project_id`
 
 **Answer:** `cryptostartup`
 
@@ -94,7 +93,6 @@ My first guess was the long number in `projects/421111031168/services/...`, but 
 The `user.name` field shows the same service account on every event:
 
 > <img width="216" height="169" alt="IMG-10-user-name" src="https://github.com/user-attachments/assets/d3c23c93-9a12-48e9-bc1f-f2c8a723dd45" />
- `user.name`
 
 Looking at `event.original`, every request includes a `serviceAccountKeyName`, so the attacker authenticated using a downloaded key for this service account.
 
@@ -105,7 +103,6 @@ Looking at `event.original`, every request includes a `serviceAccountKeyName`, s
 All 6 requests come from the same IP in `source.ip`:
 
 > <img width="157" height="102" alt="IMG-11-source-ip" src="https://github.com/user-attachments/assets/5d366a27-dbad-413a-b280-a1868a7dd417" />
- `source.ip`
 
 **Answer:** `178.132.108.38`
 
@@ -125,7 +122,6 @@ ipinfo shows Bucharest, Romania, and flags the IP as a VPN/hosting provider. The
 Google doesn't log devices directly, but the user agent in `user_agent.original` gives it away:
 
 > <img width="214" height="264" alt="IMG-13-user-agent-device" src="https://github.com/user-attachments/assets/48e35e85-a040-4e8f-a23d-36463a786cf3" />
- `user_agent.original` showing `(Macintosh; Intel Mac OS X 22.5.0)`
 
 SOF-ELK's parsed device field just says `Other` here, so the raw user agent is the one to read.
 
@@ -136,7 +132,6 @@ SOF-ELK's parsed device field just says `Other` here, so the raw user agent is t
 The first event in the timeline, which failed with a permission denied error:
 
 > <img width="220" height="98" alt="IMG-14-enableservice" src="https://github.com/user-attachments/assets/8035d61b-d1bd-41a5-8e50-cf2fc20341b3" />
- `gcp.audit.method_name` showing `ServiceUsage.EnableService`
 
 The user agent shows the attacker was actually running `gcloud compute firewall-rules list`. The Compute API wasn't enabled in the project, so `gcloud` tried to enable it first, and the service account didn't have permission. The next two events are the same story with `firewall-rules create` and `projects get-iam-policy`.
 
@@ -147,7 +142,6 @@ The user agent shows the attacker was actually running `gcloud compute firewall-
 After failing with Compute, the attacker moved to storage. At `00:17:18`, there's a `storage.objects.list` call on `projects/_/buckets/importantbucket`, and the user agent shows `command/ls`, so they listed the bucket's contents:
 
 > <img width="631" height="117" alt="IMG-15-bucket-enum" src="https://github.com/user-attachments/assets/82b0f106-d790-4e94-b649-967966f8f5d7" />
- The `storage.objects.list` event on `importantbucket`
 
 **Answer:** `importantbucket`
 
@@ -156,7 +150,6 @@ After failing with Compute, the attacker moved to storage. At `00:17:18`, there'
 The last event in the timeline:
 
 > <img width="221" height="86" alt="IMG-16-objects-get" src="https://github.com/user-attachments/assets/35debd2d-ccb0-4442-8df5-e974ddae46f5" />
- `gcp.audit.method_name` showing `storage.objects.get`
 
 `storage.objects.get` means an object was downloaded from the bucket.
 
@@ -176,7 +169,6 @@ The user agent of that same event shows `gsutil/5.10 ... command/cp`, so the att
 The `gcp.audit.request.resource_name` of the last event:
 
 > <img width="281" height="116" alt="IMG-18-resource-name" src="https://github.com/user-attachments/assets/a6d93f41-7cf0-4822-8107-4469a15143bb" />
- `gcp.audit.request.resource_name` showing `secretcode.java`
 
 **Answer:** `secretcode.java`
 
