@@ -2278,12 +2278,13 @@
 
 <p>The Sherlock gives us <code class="language-plaintext highlighter-rouge">gcp.json</code>, a JSON array of 6 Cloud Audit Log entries. SOF-ELK watches its folders for new files, so ingesting is just copying the file into <code class="language-plaintext highlighter-rouge">/logstash/gcp/</code>. I did it from my host with <code class="language-plaintext highlighter-rouge">scp</code>:</p>
 
-<p><code class="language-plaintext highlighter-rouge">scp .\gcp.json elk_user@192.168.178.128:/logstash/gcp/</code></p>
+<p><code class="language-plaintext highlighter-rouge">scp .\gcp.json elk_user@&lt;VM-IP&gt;:/logstash/gcp/</code></p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/304b1d90-765d-47ff-94e8-4700dd599aab" class="popup img-link shimmer"><img width="1056" height="219" alt="IMG-04-scp-transfer" src="https://github.com/user-attachments/assets/304b1d90-765d-47ff-94e8-4700dd599aab" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">scp</code> transfer in PowerShell</p>
+  <p><a href="https://github.com/user-attachments/assets/d53df2e4-1cad-4b58-ab05-ce94743c791d" class="popup img-link shimmer"><img width="1059" height="214" alt="Screenshot 2026-10-23 155433" src="https://github.com/user-attachments/assets/d53df2e4-1cad-4b58-ab05-ce94743c791d" loading="lazy"></a></p>
 </blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">scp</code> transfer in PowerShell</p>
 
 <p>To make sure it parsed correctly, I asked Elasticsearch how many documents it has in the GCP index:</p>
 
