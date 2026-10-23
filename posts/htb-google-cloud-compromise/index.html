@@ -2208,7 +2208,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1120 words"
+  title="1085 words"
 >
   <em>6 min</em> read</span>
 
@@ -2264,8 +2264,7 @@
 <p>After extracting it, we get a <code class="language-plaintext highlighter-rouge">.vmx</code> file (the VM’s configuration: RAM, CPU, network) and a <code class="language-plaintext highlighter-rouge">.vmdk</code> file (the virtual disk with the OS and SOF-ELK itself). Opening the <code class="language-plaintext highlighter-rouge">.vmx</code> in VMware Workstation loads the VM, and we can log in with <code class="language-plaintext highlighter-rouge">elk_user</code> / <code class="language-plaintext highlighter-rouge">forensics</code>:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/5d8490c3-38bc-4681-a459-055a1b05970a" class="popup img-link shimmer"><img width="686" height="598" alt="IMG-02-login-screen" src="https://github.com/user-attachments/assets/5d8490c3-38bc-4681-a459-055a1b05970a" loading="lazy"></a>
- SOF-ELK login screen</p>
+  <p><a href="https://github.com/user-attachments/assets/5d8490c3-38bc-4681-a459-055a1b05970a" class="popup img-link shimmer"><img width="686" height="598" alt="IMG-02-login-screen" src="https://github.com/user-attachments/assets/5d8490c3-38bc-4681-a459-055a1b05970a" loading="lazy"></a></p>
 </blockquote>
 
 <p>Running <code class="language-plaintext highlighter-rouge">ip -4 addr</code> gives us the VM’s IP, and Kibana is then reachable from the host at <code class="language-plaintext highlighter-rouge">http://&lt;vm-ip&gt;:5601</code>:</p>
@@ -2291,8 +2290,7 @@
 <p><code class="language-plaintext highlighter-rouge">curl -s 'localhost:9200/gcp-*/_count?pretty'</code></p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/8cebdee4-2bb4-483f-9383-bf0b6d582752" class="popup img-link shimmer"><img width="547" height="297" alt="IMG-05-count-6" src="https://github.com/user-attachments/assets/8cebdee4-2bb4-483f-9383-bf0b6d582752" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">ls -l /logstash/gcp</code> and <code class="language-plaintext highlighter-rouge">_count</code> returning 6</p>
+  <p><a href="https://github.com/user-attachments/assets/8cebdee4-2bb4-483f-9383-bf0b6d582752" class="popup img-link shimmer"><img width="547" height="297" alt="IMG-05-count-6" src="https://github.com/user-attachments/assets/8cebdee4-2bb4-483f-9383-bf0b6d582752" loading="lazy"></a></p>
 </blockquote>
 
 <p>6 documents for 6 log entries, so everything was ingested.</p>
@@ -2366,8 +2364,7 @@
 <p>My first guess was the long number in <code class="language-plaintext highlighter-rouge">projects/421111031168/services/...</code>, but that’s the <strong>project number</strong>, an ID Google assigns automatically. What we want is the <strong>project ID</strong>, the human-readable identifier chosen when the project is created. It’s in the <code class="language-plaintext highlighter-rouge">gcp.instance.project_id</code> field:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/d0840665-b06e-4038-8b44-a2adc500a948" class="popup img-link shimmer"><img width="210" height="130" alt="IMG-09-project-id" src="https://github.com/user-attachments/assets/d0840665-b06e-4038-8b44-a2adc500a948" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">gcp.instance.project_id</code></p>
+  <p><a href="https://github.com/user-attachments/assets/d0840665-b06e-4038-8b44-a2adc500a948" class="popup img-link shimmer"><img width="210" height="130" alt="IMG-09-project-id" src="https://github.com/user-attachments/assets/d0840665-b06e-4038-8b44-a2adc500a948" loading="lazy"></a></p>
 </blockquote>
 
 <p><strong>Answer:</strong> <code class="language-plaintext highlighter-rouge">cryptostartup</code></p>
@@ -2377,8 +2374,7 @@
 <p>The <code class="language-plaintext highlighter-rouge">user.name</code> field shows the same service account on every event:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/d3c23c93-9a12-48e9-bc1f-f2c8a723dd45" class="popup img-link shimmer"><img width="216" height="169" alt="IMG-10-user-name" src="https://github.com/user-attachments/assets/d3c23c93-9a12-48e9-bc1f-f2c8a723dd45" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">user.name</code></p>
+  <p><a href="https://github.com/user-attachments/assets/d3c23c93-9a12-48e9-bc1f-f2c8a723dd45" class="popup img-link shimmer"><img width="216" height="169" alt="IMG-10-user-name" src="https://github.com/user-attachments/assets/d3c23c93-9a12-48e9-bc1f-f2c8a723dd45" loading="lazy"></a></p>
 </blockquote>
 
 <p>Looking at <code class="language-plaintext highlighter-rouge">event.original</code>, every request includes a <code class="language-plaintext highlighter-rouge">serviceAccountKeyName</code>, so the attacker authenticated using a downloaded key for this service account.</p>
@@ -2390,8 +2386,7 @@
 <p>All 6 requests come from the same IP in <code class="language-plaintext highlighter-rouge">source.ip</code>:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/5d366a27-dbad-413a-b280-a1868a7dd417" class="popup img-link shimmer"><img width="157" height="102" alt="IMG-11-source-ip" src="https://github.com/user-attachments/assets/5d366a27-dbad-413a-b280-a1868a7dd417" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">source.ip</code></p>
+  <p><a href="https://github.com/user-attachments/assets/5d366a27-dbad-413a-b280-a1868a7dd417" class="popup img-link shimmer"><img width="157" height="102" alt="IMG-11-source-ip" src="https://github.com/user-attachments/assets/5d366a27-dbad-413a-b280-a1868a7dd417" loading="lazy"></a></p>
 </blockquote>
 
 <p><strong>Answer:</strong> <code class="language-plaintext highlighter-rouge">178.132.108.38</code></p>
@@ -2414,8 +2409,7 @@
 <p>Google doesn’t log devices directly, but the user agent in <code class="language-plaintext highlighter-rouge">user_agent.original</code> gives it away:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/48e35e85-a040-4e8f-a23d-36463a786cf3" class="popup img-link shimmer"><img width="214" height="264" alt="IMG-13-user-agent-device" src="https://github.com/user-attachments/assets/48e35e85-a040-4e8f-a23d-36463a786cf3" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">user_agent.original</code> showing <code class="language-plaintext highlighter-rouge">(Macintosh; Intel Mac OS X 22.5.0)</code></p>
+  <p><a href="https://github.com/user-attachments/assets/48e35e85-a040-4e8f-a23d-36463a786cf3" class="popup img-link shimmer"><img width="214" height="264" alt="IMG-13-user-agent-device" src="https://github.com/user-attachments/assets/48e35e85-a040-4e8f-a23d-36463a786cf3" loading="lazy"></a></p>
 </blockquote>
 
 <p>SOF-ELK’s parsed device field just says <code class="language-plaintext highlighter-rouge">Other</code> here, so the raw user agent is the one to read.</p>
@@ -2427,8 +2421,7 @@
 <p>The first event in the timeline, which failed with a permission denied error:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/8035d61b-d1bd-41a5-8e50-cf2fc20341b3" class="popup img-link shimmer"><img width="220" height="98" alt="IMG-14-enableservice" src="https://github.com/user-attachments/assets/8035d61b-d1bd-41a5-8e50-cf2fc20341b3" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">gcp.audit.method_name</code> showing <code class="language-plaintext highlighter-rouge">ServiceUsage.EnableService</code></p>
+  <p><a href="https://github.com/user-attachments/assets/8035d61b-d1bd-41a5-8e50-cf2fc20341b3" class="popup img-link shimmer"><img width="220" height="98" alt="IMG-14-enableservice" src="https://github.com/user-attachments/assets/8035d61b-d1bd-41a5-8e50-cf2fc20341b3" loading="lazy"></a></p>
 </blockquote>
 
 <p>The user agent shows the attacker was actually running <code class="language-plaintext highlighter-rouge">gcloud compute firewall-rules list</code>. The Compute API wasn’t enabled in the project, so <code class="language-plaintext highlighter-rouge">gcloud</code> tried to enable it first, and the service account didn’t have permission. The next two events are the same story with <code class="language-plaintext highlighter-rouge">firewall-rules create</code> and <code class="language-plaintext highlighter-rouge">projects get-iam-policy</code>.</p>
@@ -2440,8 +2433,7 @@
 <p>After failing with Compute, the attacker moved to storage. At <code class="language-plaintext highlighter-rouge">00:17:18</code>, there’s a <code class="language-plaintext highlighter-rouge">storage.objects.list</code> call on <code class="language-plaintext highlighter-rouge">projects/_/buckets/importantbucket</code>, and the user agent shows <code class="language-plaintext highlighter-rouge">command/ls</code>, so they listed the bucket’s contents:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/82b0f106-d790-4e94-b649-967966f8f5d7" class="popup img-link shimmer"><img width="631" height="117" alt="IMG-15-bucket-enum" src="https://github.com/user-attachments/assets/82b0f106-d790-4e94-b649-967966f8f5d7" loading="lazy"></a>
- The <code class="language-plaintext highlighter-rouge">storage.objects.list</code> event on <code class="language-plaintext highlighter-rouge">importantbucket</code></p>
+  <p><a href="https://github.com/user-attachments/assets/82b0f106-d790-4e94-b649-967966f8f5d7" class="popup img-link shimmer"><img width="631" height="117" alt="IMG-15-bucket-enum" src="https://github.com/user-attachments/assets/82b0f106-d790-4e94-b649-967966f8f5d7" loading="lazy"></a></p>
 </blockquote>
 
 <p><strong>Answer:</strong> <code class="language-plaintext highlighter-rouge">importantbucket</code></p>
@@ -2451,8 +2443,7 @@
 <p>The last event in the timeline:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/35debd2d-ccb0-4442-8df5-e974ddae46f5" class="popup img-link shimmer"><img width="221" height="86" alt="IMG-16-objects-get" src="https://github.com/user-attachments/assets/35debd2d-ccb0-4442-8df5-e974ddae46f5" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">gcp.audit.method_name</code> showing <code class="language-plaintext highlighter-rouge">storage.objects.get</code></p>
+  <p><a href="https://github.com/user-attachments/assets/35debd2d-ccb0-4442-8df5-e974ddae46f5" class="popup img-link shimmer"><img width="221" height="86" alt="IMG-16-objects-get" src="https://github.com/user-attachments/assets/35debd2d-ccb0-4442-8df5-e974ddae46f5" loading="lazy"></a></p>
 </blockquote>
 
 <p><code class="language-plaintext highlighter-rouge">storage.objects.get</code> means an object was downloaded from the bucket.</p>
@@ -2475,8 +2466,7 @@
 <p>The <code class="language-plaintext highlighter-rouge">gcp.audit.request.resource_name</code> of the last event:</p>
 
 <blockquote>
-  <p><a href="https://github.com/user-attachments/assets/a6d93f41-7cf0-4822-8107-4469a15143bb" class="popup img-link shimmer"><img width="281" height="116" alt="IMG-18-resource-name" src="https://github.com/user-attachments/assets/a6d93f41-7cf0-4822-8107-4469a15143bb" loading="lazy"></a>
- <code class="language-plaintext highlighter-rouge">gcp.audit.request.resource_name</code> showing <code class="language-plaintext highlighter-rouge">secretcode.java</code></p>
+  <p><a href="https://github.com/user-attachments/assets/a6d93f41-7cf0-4822-8107-4469a15143bb" class="popup img-link shimmer"><img width="281" height="116" alt="IMG-18-resource-name" src="https://github.com/user-attachments/assets/a6d93f41-7cf0-4822-8107-4469a15143bb" loading="lazy"></a></p>
 </blockquote>
 
 <p><strong>Answer:</strong> <code class="language-plaintext highlighter-rouge">secretcode.java</code></p>
